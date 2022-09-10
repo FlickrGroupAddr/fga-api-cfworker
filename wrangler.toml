@@ -1,7 +1,7 @@
-name = "router"
-type = "webpack"
+name = "fga-api-cfworker"
 
-account_id = ""
-workers_dev = true
-route = ""
-zone_id = ""
+route = "cfapi.flickgroupaddr.com/api/v002/*"
+
+main = "./index.js"
+
+compatibility_date = "2022-09-10"

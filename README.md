@@ -19,3 +19,10 @@ Once you are ready, you can publish your code by running the following command:
 ```
 wrangler publish
 ```
+
+## FlickrGroupAddr CF Worker
+
+### Install
+
+* Set `CLOUDFLARE_API_TOKEN` env var
+* Set `CLOUDFLARE_ACCOUNT_ID` env var
