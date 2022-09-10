@@ -76,13 +76,19 @@ export async function getFlickrGetUserAuthUrl() {
     }
 
     const encodedToken = encodeURIComponent( responseDictionary['oauth_token'] )
+    const encodedTokenSecret = encodeURIComponent( responseDictionary['oauth_token_secret'] )
 
     const authUrlResponse = {
         'flickr_user_auth_url': 
-            `https://www.flickr.com/services/oauth/authorize?oauth_token=${encodedToken}&perms=write` 
+            `https://www.flickr.com/services/oauth/authorize?oauth_token=${encodedToken}&perms=write`,
+        'oauth_values': {
+            'auth_token'        : encodedToken,
+            'auth_token_secret' : encodedTokenSecret
+        }
+
     }
 
-    return new Response( JSON.stringify(authUrlResponse), 
+    return new Response( JSON.stringify(authUrlResponse, false, 4) + "\n", 
         { 
             headers: new Headers( 
                 { 
