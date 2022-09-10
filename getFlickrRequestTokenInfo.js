@@ -1,6 +1,6 @@
 import jsSHA from "jssha";
 
-export async function getFlickrGetUserAuthUrl() {
+export async function getFlickrRequestTokenInfo() {
     const oauthTimestamp = Math.round((new Date()).getTime() / 1000.0);
 
     let integerArray = new Uint32Array(1)
@@ -78,17 +78,15 @@ export async function getFlickrGetUserAuthUrl() {
     const encodedToken = encodeURIComponent( responseDictionary['oauth_token'] )
     const encodedTokenSecret = encodeURIComponent( responseDictionary['oauth_token_secret'] )
 
-    const authUrlResponse = {
-        'flickr_user_auth_url': 
-            `https://www.flickr.com/services/oauth/authorize?oauth_token=${encodedToken}&perms=write`,
-        'oauth_values': {
+    const requestTokenInfo = {
+        'request_token_info': {
             'auth_token'        : encodedToken,
             'auth_token_secret' : encodedTokenSecret
         }
 
     }
 
-    return new Response( JSON.stringify(authUrlResponse, false, 4) + "\n", 
+    return new Response( JSON.stringify(requestTokenInfo, false, 4) + "\n", 
         { 
             headers: new Headers( 
                 { 
