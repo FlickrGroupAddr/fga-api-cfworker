@@ -1,19 +1,10 @@
 import { Router } from 'itty-router'
-import { getFlickrAuthUrl } from './getFlickrAuthUrl';
-
-/*
-function flickrAuthUrl() {
-    const flickrAuthResponse = {
-        "flickr_auth_url": 
-    }
-    return new Response( "So you want a flickr auth URL" )
-}
-*/
+import { getFlickrGetUserAuthUrl } from './getFlickrAuthUrl';
 
 // Create a new router
 const router = Router()
 
-router.get("/api/v002/flickr_auth_url", () => getFlickrAuthUrl() )
+router.get("/api/v002/flickr_auth_url", getFlickrGetUserAuthUrl )
 
 /*
 This is the last route we define, it will match anything that hasn't hit a route we've defined
