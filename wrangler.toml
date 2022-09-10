@@ -1,6 +1,6 @@
 name = "fga-api-cfworker"
 
-route = "cfapi.flickgroupaddr.com/api/v002/*"
+route = "cfapi.flickrgroupaddr.com/api/v002/*"
 
 main = "./index.js"
 
